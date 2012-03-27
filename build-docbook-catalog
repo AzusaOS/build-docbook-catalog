@@ -114,7 +114,7 @@ set_dtds() {
 create_catalogs() {
 	if [[ ! -r ${ROOTCATALOG} ]] ; then
 		echo "Creating XML Catalog root ${ROOTCATALOG}"
-		/usr/bin/xmlcatalog --noout --create ${ROOTCATALOG}
+		xmlcatalog --noout --create ${ROOTCATALOG}
 		if [[ ! -r ${ROOTCATALOG} ]] ; then
 			error "failed creating ${ROOTCATALOG}"
 		fi
@@ -127,7 +127,7 @@ create_catalogs() {
 
 	if [[ ! -r ${CATALOG} ]] ; then
 		echo "Creating DocBook XML Catalog ${CATALOG}"
-		/usr/bin/xmlcatalog --noout --create ${CATALOG}
+		xmlcatalog --noout --create ${CATALOG}
 		if [[ ! -r ${CATALOG} ]] ; then
 			error "failed creating ${CATALOG}"
 		fi
