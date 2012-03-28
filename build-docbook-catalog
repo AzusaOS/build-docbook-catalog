@@ -346,7 +346,7 @@ populate_xsl() {
 	clean_catalog "${DOCBOOKDIR}/${type}-stylesheets(-[0-9\.]+)?" "${CATALOG}"
 	clean_catalog "${DOCBOOKDIR}/${type}-stylesheets(-[0-9\.]+)?" "${ROOTCATALOG}"
 
-	local xsldir=/usr/share/sgml/docbook/${type}-stylesheets
+	local xsldir=${DOCBOOKDIR}/${type}-stylesheets
 
 	if [[ ! -d ${xsldir} ]]; then
 		echo "DocBook XSL stylesheets (${type}) not found" >&2
