@@ -62,6 +62,7 @@ main() {
 	if [[ ${ROOT} != "/" ]] ; then
 		echo "Working on root ${ROOT}"
 	fi
+	[[ // -ef / ]] || ROOT="/.${ROOT}" # "//" might refer to network
 
 	if [[ ! -d ${ROOT}${ROOTCONFDIR} ]] ; then
 		mkdir -p "${ROOT}${ROOTCONFDIR}" || error "could not create ${ROOTCONFDIR}"
