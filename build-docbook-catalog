@@ -50,7 +50,12 @@ main() {
 		case $1 in
 			-h|--help) usage ;;
 			-r|--root) ROOT="$2" ; shift ;;
-			-e|--etc-path) ROOTCONFDIR="$2" ; shift ;;
+			-e|--etc-path)
+				ROOTCONFDIR="$2"
+				ROOTCATALOG=${ROOTCONFDIR}/catalog
+				CATALOG=${ROOTCONFDIR}/docbook
+				shift
+				;;
 			-d|--docbook) DOCBOOKDIR="$2" ; shift ;;
 			-v|--verbose) VERBOSE=true ;;
 			--) break ;;
