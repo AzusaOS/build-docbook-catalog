@@ -1,6 +1,6 @@
-$Header$
+# build-docbook-catalog
 
-This is the source for app-text/build-docbook-catalog, which is a
+This is the source for `app-text/build-docbook-catalog`, which is a
 script to regenerate the xml docbook catalog.
 
 You can find it here:
