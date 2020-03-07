@@ -1,5 +1,4 @@
 #!/bin/bash
-# $Header$
 #
 # build-docbook-catalog: populate /etc/xml/docbook based in
 # installed docbook-xml-dtd versions.
@@ -31,6 +30,8 @@ usage() {
 	Options:
 	  -r, --root       ROOT path to work on
 	  -v, --verbose    Be verbose
+	  -e, --etc-path   Path to /etc/xml
+	  -d, --docbook    Path to /usr/share/sgml/docbook
 	  -h, --help       This!
 	EOF
 	[[ $# -gt 0 ]] && eerror "$*"
@@ -43,12 +44,14 @@ usage() {
 main() {
 	local d v opts
 
-	opts=$(${GETOPT} -o hr:v --long help,root:,verbose -n "${ZERO}" -- "$@") || exit 1
+	opts=$(${GETOPT} -o hr:e:v --long help,root:,etc-path:,verbose -n "${ZERO}" -- "$@") || exit 1
 	eval set -- "${opts}"
 	while true; do
 		case $1 in
 			-h|--help) usage ;;
-			-r|--root) ROOT=$2 ; shift ;;
+			-r|--root) ROOT="$2" ; shift ;;
+			-e|--etc-path) ROOTCONFDIR="$2" ; shift ;;
+			-d|--docbook) DOCBOOKDIR="$2" ; shift ;;
 			-v|--verbose) VERBOSE=true ;;
 			--) break ;;
 			*) usage "options parsing failed on $1!" ;;
