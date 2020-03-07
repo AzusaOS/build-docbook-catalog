@@ -44,7 +44,7 @@ usage() {
 main() {
 	local d v opts
 
-	opts=$(${GETOPT} -o hr:e:v --long help,root:,etc-path:,verbose -n "${ZERO}" -- "$@") || exit 1
+	opts=$(${GETOPT} -o hr:e:d:v --long help,root:,etc-path:,docbook:,verbose -n "${ZERO}" -- "$@") || exit 1
 	eval set -- "${opts}"
 	while true; do
 		case $1 in
